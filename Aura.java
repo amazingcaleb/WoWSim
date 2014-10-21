@@ -5,7 +5,6 @@ maybe have the effect stored as a string which gets parsed and executed in Sim?
 
 public class Aura{
 	private String name="";
-	//s-surely i'll define what a Unit is at some point(player, boss)
 	private Unit author;
 	private Unit target;
 	private double duration;//think this should be in seconds or frames?

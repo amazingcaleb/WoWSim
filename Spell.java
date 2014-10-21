@@ -11,11 +11,21 @@ implemented cast()s.
 Thinking that cast progress should be tracked here to make
 channeled spells easier to deal with. If this is how it ends
 up then maybe tracking time in terms of frames will be the
-way to go? 
+way to go?
+
+WoWHead has some pretty good documentation. Claims to know damage
+values as functions of stats.
+
+-Crits-
+So your character has a crit value and i'm pretty sure spells also have their
+own crit values (eg Fire mage has a passive that ups the crit chances of 
+certain spells)
+Thinking of having crits rolled in Sim
 */
 public abstract class Spell{
 	private double castTime;//will clearly be a function of auras and stats
 	private double progress;
+	private double critChance;
 	private String name;
 	//this will probably always be the player, so i'm not sure how useful this will be
 	private Unit author;

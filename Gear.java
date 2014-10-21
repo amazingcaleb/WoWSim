@@ -14,6 +14,13 @@
 12: Trinket2
 13: Wep1
 14: Wep2
+
+Okay, maybe weapons need their own fucking class since they have
+stats like Spell Power, Attack Power, Attack Speed, Damage per Second,...
+
+plus i think stats of melee weapons are checked on their swings
+maybe this can be worked around by giving all gear pieces these stats
+and having only the items in certain slots checked on swings or some shit
 */
 import java.util.ArrayList;
 public class Gear extends Item{
