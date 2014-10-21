@@ -8,7 +8,7 @@
 public class Gem extends Item{
 	private int color=0;
 
-	//Sample: "Gem of Stat, 10"
+	//Sample: "Gem of Stat, 10, INT 420, CRIT 69"
 	//(10 is orange)
 	public Gem(String input){
 		color=input.split(", ")[1];

@@ -1,27 +1,41 @@
 
 public class Item{
-	//Should stats be an enum? array? this alright as is?
-	private int STAM=0;
-	private int INT=0;
-	private int AGI=0;
-	private int STR=0;
-	private int SPIR=0;
-	private int CRIT=0;
-	private int MAST=0;
-	private int HASTE=0;
-	private int DODGE=0;
-	private int PARRY=0;
-	private int MULTI=0;
-	private int VERS=0;
+	/*Should stats be an enum? array? this alright as is?
+	Moving stats over to player. why the fuck did i put
+	them here in the first place? As a consequence this is
+	probably getting gutted and parsing might move as well. fuh
+
+	UPDATE:
+	thinking of turning the stats into an array that gets processed
+	in Player.
+	Plan: item puts stats into a vector(array). player sums the gear vectors
+	and adds this sum to base stats.
+	
+	0  private int STAM=0; 
+	1  private int INT=0;
+	2  private int AGI=0;
+	3  private int STR=0;
+	4  private int SPIR=0;
+	5  private int CRIT=0;
+	6  private int MAST=0;
+	7  private int HASTE=0;
+	8  private int DODGE=0;
+	9  private int PARRY=0;
+	10 private int MULTI=0;
+	11 private int VERS=0;
+
+	*/
+	private int[14] stats;
 	private String NAME="";
 
 	/*
-	Takes input. Gets name. Sends the rest to statParse
-	Takes array from statParse and fills stats
 	looks gay as hell right now
+	sample input: "Thing of Kil, STAM 69, SPIR 420, STR 86"
 	*/
 	public Item(String input){
+		stats = new int[14];
 		String[] data = input.split(", ");
+		//Ghetto parse
 		for(int i=0; i<data.length; i++){
 			if(i==0)
 				NAME=data[i];
@@ -30,40 +44,40 @@ public class Item{
 				if(set.length>0){
 					switch(set[0]){
 						case "STAM":
-							STAM = Integer.parseInt(set[1]);
+							stats[0] = Integer.parseInt(set[1]);
 							break;
 						case "INT":
-							INT = Integer.parseInt(set[1]);
+							stats[1] = Integer.parseInt(set[1]);
 							break;
 						case "AGI":
-							AGI = Integer.parseInt(set[1]);
+							stats[2] = Integer.parseInt(set[1]);
 							break;
 						case "STR":
-							STR = Integer.parseInt(set[1]);
+							stats[3] = Integer.parseInt(set[1]);
 							break;
 						case "CRIT":
-							CRIT = Integer.parseInt(set[1]);
+							stats[5] = Integer.parseInt(set[1]);
 							break;
 						case "SPIR":
-							SPIR = Integer.parseInt(set[1]);
+							stats[4] = Integer.parseInt(set[1]);
 							break;
 						case "MAST":
-							MAST = Integer.parseInt(set[1]);
+							stats[6] = Integer.parseInt(set[1]);
 							break;
 						case "HASTE":
-							HASTE = Integer.parseInt(set[1]);
+							stats[7] = Integer.parseInt(set[1]);
 							break;
 						case "DODGE":
-							DODGE = Integer.parseInt(set[1]);
+							stats[8] = Integer.parseInt(set[1]);
 							break;
 						case "PARRY":
-							PARRY = Integer.parseInt(set[1]);
+							stats[9] = Integer.parseInt(set[1]);
 							break;
 						case "MULTI":
-							MULTI = Integer.parseInt(set[1]);
+							stats[10] = Integer.parseInt(set[1]);
 							break;
 						case "VERS":
-							VERS = Integer.parseInt(set[1]);
+							stats[11] = Integer.parseInt(set[1]);
 							break;
 						default:
 							break;
@@ -73,47 +87,8 @@ public class Item{
 		}
 	}
 
-	public int STAM(){
-		return STAM;
-	}
-
-	public int INT(){
-		return INT;
-	}
-	public int AGI(){
-		return AGI;
-	}
-
-	public int STR(){
-		return STR;
-	}
-	public int SPIR(){
-		return SPIR;
-	}
-
-	public int CRIT(){
-		return CRIT;
-	}
-	public int HASTE(){
-		return HASTE;
-	}
-
-	public int MAST(){
-		return MAST;
-	}
-	public int DODGE(){
-		return PARRY;
-	}
-
-	public int MULTI(){
-		return MULTI;
-	}
-	public int VERS(){
-		return VERS;
-	}
-
-	public int STAM(){
-		return STAM;
+	public int[] stats(){
+		return stats;
 	}
 
 }

@@ -16,7 +16,7 @@
 14: Wep2
 */
 import java.util.ArrayList;
-public class Gear{
+public class Gear extends Item{
 	private String slot="";
 	private ArrayList<Socket> sockets;
 	private String socketBonus="";
@@ -32,7 +32,10 @@ public class Gear{
 		super(input);
 		slot = data[1];
 		//Sockets 
-		//thinking of way to cleanly implement socket bonuses
+		/*thinking of way to cleanly implement socket bonuses
+		will probably add gem contributions then parse some string
+		for bonus. fug
+		*/
 		sockets = new ArrayList<Socket>();
 		for(int i=0; i<data.length; i++){
 			String set = data[i].split(" ");
