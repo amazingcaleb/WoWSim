@@ -6,11 +6,12 @@
 30: Prismatic
 */
 public class Socket{
-	private boolean filled = false;
-	private int color=0;
+	private boolean filled;
+	private int color;
 	private Gem gem;
 
-	public Socket(String color){
+	public Socket(){
+		filled = false;
 		switch(color){
 			case "Red": color = 2;
 				break;
@@ -21,8 +22,52 @@ public class Socket{
 			default: color = 0;
 				break;
 		}
+		gem = null;
 	}
-	public boolean fill(Gem g){
+
+	public Socket(String color){
+		filled = false;
+		switch(color){
+			case "Red": color = 2;
+				break;
+			case "Blue": color = 3;
+				break;
+			case "Yellow": color = 5;
+				break;
+			default: color = 0;
+				break;
+		}
+		gem = null;
+	}
+
+	public Socket(String color, Gem g){
+		filled = true;
+		switch(color){
+			case "Red": color = 2;
+				break;
+			case "Blue": color = 3;
+				break;
+			case "Yellow": color = 5;
+				break;
+			default: color = 0;
+				break;
+		}
+		gem = g;
+	}
+
+	public boolean isFilled(){
+		return filled;
+	}
+
+	public int getColor(){
+		return color;
+	}
+
+	public Gem getGem(){
+		return g;
+	}
+
+	public void fill(Gem g){
 		gem = g;
 		filled = true;
 	}
